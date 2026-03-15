@@ -1,67 +1,74 @@
-IMDB Sentiment Analysis using Machine Learning
-PROJECT OVERVIEW
+**IMDB Sentiment Analysis using Machine Learning**
+
+
+**PROJECT OVERVIEW**
 
 This project performs sentiment analysis on movie reviews from the IMDB dataset using Natural Language Processing (NLP) and machine learning models. The goal is to classify reviews as positive or negative by processing raw text and comparing the performance of multiple machine learning classifiers.
 
-The workflow includes:
 
-Data exploration
 
-Text preprocessing
+**The workflow includes:**
 
-Feature extraction using TF-IDF
+1. Data exploration
 
-Training multiple ML models
+2. Text preprocessing
 
-Model evaluation and comparison
+3. Feature extraction using TF-IDF
 
-Visualization of results
+4. Training multiple ML models
 
-DATASET
-Dataset used: IMDB Movie Reviews Dataset
+5. Model evaluation and comparison
 
-The dataset contains 50,000 labeled movie reviews.
+6. Visualization of results
 
-Column	Description
-review	Text of the movie review
-sentiment	Label indicating sentiment (positive / negative)
+**DATASET**
+
+-Dataset used: IMDB Movie Reviews Dataset
+
+-The dataset contains 50,000 labeled movie reviews.
+
+Column	Description:
+1. review	Text of the movie review
+ 
+2. sentiment	Label indicating sentiment (positive / negative)
 
 Example review snippet:
 
-This movie was absolutely amazing. The acting and storytelling were fantastic.
+  This movie was absolutely amazing. The acting and storytelling were fantastic.
 
-⚙️ Project Workflow
-DATA EXPLORATION
+Project Workflow:-
 
-Initial dataset analysis includes:
+**DATA EXPLORATION**
 
-Checking dataset shape
+ Initial dataset analysis includes:
 
-Inspecting columns
+ 1. Checking dataset shape
 
-Viewing sample rows
+ 2. Inspecting columns
 
-Identifying missing values
+ 3. Viewing sample rows
 
-Calculating review length statistics
+ 4. Identifying missing values
+
+ 5. Calculating review length statistics
 
 A new feature review_length was created to analyze review sizes.
 
-TEXT CLEANING
+**TEXT CLEANING**
 
 Raw reviews contain HTML tags, punctuation, and other noise. These were cleaned using regular expressions.
 
 Cleaning steps:
 
-Remove HTML tags
+ 1. Remove HTML tags
 
-Remove special characters
+ 2. Remove special characters
 
-Convert text to lowercase
+ 3. Convert text to lowercase
 
-Remove extra spaces
+ 4. Remove extra spaces
 
-Example:
+**Example:**
 
 Original:
 
@@ -72,15 +79,15 @@ Cleaned:
 
 this movie was amazing
 
-TEXT PREPROCESSING
+**TEXT PREPROCESSING**
 
 Natural language preprocessing includes:
 
-Tokenization
+1. Tokenization
 
-Stopword removal
+2. Stopword removal
 
-Porter stemming
+3. Porter stemming
 
 Example:
 
@@ -93,7 +100,7 @@ Processed text:
 
 movi absolut wonder entertain
 
-FEATURE EXTRACTION
+**FEATURE EXTRACTION**
 
 Text was converted into numerical features using TF-IDF Vectorization.
 
@@ -102,7 +109,7 @@ TfidfVectorizer(max_features=5000)
 
 This creates a 5000-dimensional feature space representing word importance across reviews.
 
-TRAIN-TEST SPLIT
+**TRAIN-TEST SPLIT**
 
 The dataset was split into:
 
@@ -112,49 +119,55 @@ The dataset was split into:
 
 train_test_split(test_size=0.25, stratify=y)
 
-MACHINE LEARNING MODELS
+**MACHINE LEARNING MODELS**
 
 The following models were trained and compared:
 
-Traditional ML Models
+ Traditional ML Models
 
-Logistic Regression
+ Logistic Regression
 
-Linear Support Vector Classifier (Linear SVC)
+ Linear Support Vector Classifier (Linear SVC)
 
-K-Nearest Neighbors (KNN)
+ K-Nearest Neighbors (KNN)
 
-Neural Network Models
+ Neural Network Models
 
-MLP (100 neurons, ReLU)
+ MLP (100 neurons, ReLU)
 
-MLP (128,64 neurons, tanh)
+ MLP (128,64 neurons, tanh)
 
-MLP (256,128,64 neurons, ReLU)
+ MLP (256,128,64 neurons, ReLU)
 
-EVALUATION METRICS
+**EVALUATION METRICS**
 
 Models were evaluated using:
 
-Accuracy
+ Accuracy
 
-Precision
+ Precision
 
-Recall
+ Recall
 
-F1 Score
+ F1 Score
 
-Confusion Matrix
+ Confusion Matrix
 
 The F1-Score was used as the primary evaluation metric since it balances precision and recall.
 
 RESULTS
-Model	Accuracy	F1 Score
-Logistic Regression	0.8879	0.8892
+
+Model  	Accuracy	 F1  Score
+
+Logistic  Regression	 0.8879	 0.8892
+
 Linear SVC	~0.882	~0.882
+
 MLP Neural Networks	~0.875 – 0.879	~0.875 – 0.879
+
 KNN	~0.77	~0.77
-BEST MODEL
+
+**BEST MODEL**
 
 The best performing model was Logistic Regression.
 
@@ -165,18 +178,10 @@ F1 Score: 0.8892
 The confusion matrix shows strong performance with most predictions correctly classified.
 
 VISUALIZATIONS
+![model comparison](Models_Comparison)
+![Best Performing model](Best_Performing_model)
 
-The project includes visualizations for:
-
-Model comparison using F1-Score bar charts
-
-Confusion matrix for the best model
-
-Example visualization:
-
-Model Comparison based on F1 Score
-
-TECHNOLOGIES USED
+**TECHNOLOGIES USED**
 
 Python
 
@@ -192,7 +197,7 @@ Matplotlib
 
 Seaborn
 
-INSTALLATION
+**INSTALLATION**
 
 Install required libraries:
 
@@ -204,43 +209,17 @@ Download NLTK stopwords:
 import nltk
 nltk.download('stopwords')
 
-HOW TO RUN
+**HOW TO RUN**
 
-1 Place dataset in project directory
+ 1. Place dataset in project directory
 
-IMDB Dataset.csv
+      IMDB Dataset.csv
 
 
-2 Run the script:
+ 2. Run the script:
 
 python sentiment_analysis.py
 
+**AUTHOR**
 
-or open the notebook:
-
-sentiment_analysis.ipynb
-
- PROJECT STRUCTURE
-sentiment-analysis
-│
-├── sentiment_analysis.ipynb
-├── IMDB Dataset.csv
-├── README.md
-└── results
-    ├── confusion_matrix.png
-    └── model_comparison.png
-
-FUTURE IMPROVEMENTS
-
-Potential enhancements:
-
-Implement Word2Vec / GloVe embeddings
-
-Apply deep learning models (LSTM / Transformers)
-
-Perform hyperparameter tuning
-
-Deploy as a web application
-
-AUTHOR
 Shreya Galurgi
